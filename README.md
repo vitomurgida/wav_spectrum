@@ -1,24 +1,23 @@
 # wav_spectrum
-Use wav_fft.py to compute the spectrum of your .wav file.
 
-wav_fft.py is a simple Python code which reads an audio recording in .wav format and computes the frequency spectrum of the signal.
-To compute the fft, it makes use of the function in compute_fft.py.
-The latter is validated in compute_fft.py, using an analytical signal for which harmonics amplitudes and frequencies can be calculated by hand.
+What:
+wav_spectrum is a simple Python project that reads an audio recording in .wav format and computes the frequency spectrum of the signal using an fft.
 
-It outputs:
-- original signal time history
-- slice of the time history to be analyzed, arbitrarily chosen by the user, and frequency spectrum based on its
-peaks frequencies, amplitudes and rms
-- sampling frequency
-- measurement duration
-
-The user can choose:
-- .wav file location
-- time range in which performing the FFT analysis (start and end time)
-- maximum frequency to visualize in the spectrum (which, as theory teaches, is limited by the sampling frequency of the microphone used for the measurement)
-- threshold for which a peak is peaked or not for frequency peak recognizition, as a percentage of the largest peak
-- figure title and y-axis title and units
+Why:
+wav_spectrum can help identifying and characterize noise sources with a simple measurement performed with a mobile. 
 
 Files:
-- compute_fft = computes the fft of signal
-- fft_from_wav = reads a .wav file and computes its spectrum using compute_fft
+- wav_fft.py = the main file. Inputs are defined here. You need to modify only this file.
+- compute_fft.py = computes the fft of the signal. It uses an Hanning windowing.
+- test_compute_fft.py = validation test of compute_fft.py, using an analytical (multi-)harmonic signal, whose harmonics amplitudes and frequencies can be     calculated by hand using basic trigonometry.
+
+Outputs:
+- spectrum and time history of an arbitrary slice of the orginal signal, peaks frequencies, amplitudes and rms
+- original digital signal time history, its sampling frequency, duration, and quantization (for example float32)    
+
+Inputs:
+- .wav location
+- observation window on the measurement. The FFT is performed only on this window.
+- min and max frequency at which visualizing the spectrum, to zoom into specific frequency ranges
+- threshold for peak picking, as percentage of max peak amplitude
+
