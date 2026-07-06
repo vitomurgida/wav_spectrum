@@ -4,7 +4,7 @@ What:
 wav_spectrum is a simple Python project that reads an audio recording in .wav format and computes the frequency spectrum of the signal using an fft.
 
 Why:
-wav_spectrum can help identifying and characterize noise sources with a simple measurement performed with a mobile. 
+wav_spectrum can help identifying and characterize noise sources with a simple measurement performed with a mobile, enhancing the ability of troubleshooting.
 
 Files:
 - wav_fft.py = the main file. Inputs are defined here. You need to modify only this file.
